@@ -1,12 +1,20 @@
+import { Action } from "redux"
+
 interface initState{
     tasks : string[]
 }
-
-const initialState : initState = {
-    tasks: ['hello']
+interface addTodo {
+    type: 'ADD_TASK', 
+    payload: string
 }
 
-const taskReducer = (state = initialState, action : any) => {
+const initialState : initState = {
+    tasks: []
+}
+
+const taskReducer = (state = initialState, action : addTodo) => {
+    console.log(state)
+    console.log(action.type)
     switch(action.type) {
         case 'ADD_TASK':
             return{
